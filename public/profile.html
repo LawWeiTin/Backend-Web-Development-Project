@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BED CA2</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+        crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>   
+            </button>
+            <a class="navbar-brand d-none" href="#" id="profilePic">
+                <img alt="" width="32" height="35" class="rounded-circle">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav" class="navbarAnimation">
+                <!-- me-auto: margin-right: auto -->
+                <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="showAllUsers.html">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="challenges.html">Challenges</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="showAllParty.html">Party</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="region.html">Region</a>
+                </li>
+                </ul>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarNav" class="navbarAnimation">
+                <!-- ms-auto: margin-left: auto -->
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a id="profileButton" href="/profile.html" class="nav-link">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="logoutButton" href="/login.html" class="nav-link">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="loginButton" href="/login.html" class="nav-link">Login</a>
+                    </li>
+                    <li>
+                        <div class="btn-nav">
+                            <a id="registerButton" class="nav-link" href="/register.html">Register!</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    
+    <div class="container text-white rounded-4 p-5 my-5 bg-dark" id="userInfo">
+        <h2 class="mb-5" id="introduction">Hey, </h2>
+
+        <div class="container-fluid p-5 bg-light rounded rounded-4">
+            <div class="row">
+                <div class="col-lg-4 d-flex flex-column align-items-center position-relative">
+                    <img id="profile-picture" alt="User's profile picture" width="200" height="200" class="rounded-circle p-1">
+                    
+                    <!-- Wrap the button and picture selector inside a flex container -->
+                    <div class="d-flex align-items-center mt-3">
+                        <button id="change-picture-btn" class="btn btn-primary">Change Picture</button>
+                        
+                        <!-- Hovering box for profile picture selection -->
+                        <div id="picture-selector" class="picture-selector p-4 rounded rounded-5">
+                            <img src="pictures/profile1.jpg" width="110" height="110" alt="Profile 1" class="profile-option" data-profile-path="pictures/profile1.jpg">
+                            <img src="pictures/profile2.jpg" width="110" height="110" alt="Profile 2" class="profile-option" data-profile-path="pictures/profile2.jpg">
+                            <img src="pictures/profile3.jpg" width="110" height="110" alt="Profile 3" class="profile-option" data-profile-path="pictures/profile3.jpg">
+                            <img src="pictures/profile4.jpg" width="110" height="110" alt="Profile 4" class="profile-option" data-profile-path="pictures/profile4.jpg">
+                            <img src="pictures/defaultProfile.jpg" width="110" height="110" alt="Profile 5" class="profile-option" data-profile-path="pictures/defaultProfile.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <!-- User basic info -->
+                    <h3 class="my-3 text-dark" id="username"></h3>
+                    <hr class="text-dark">
+                    <div class="mb-3 text-dark">
+                    <p id="email"></p>
+                    <p id="skillpoints"></p>
+                    <p id="class"></p>
+                    <p id="region"></p>
+                    </div>
+            
+                    <!-- Stats Card -->
+                    <div class="card shadow-sm">
+                        <div class="card-header text-center fw-bold">
+                            User Stats
+                        </div>
+                        <div class="card-body">
+                            <div class="row text-center">
+                                <div class="col-md">
+                                    <h5 id="health" class="card-title"></h5>
+                                    <p class="card-text">Health</p>
+                                </div>
+                                <div class="col-md">
+                                    <h5 id="attack" class="card-title"></h5>
+                                    <p class="card-text">Attack</p>
+                                </div>
+                                <div class="col-md">
+                                    <h5 id="defense" class="card-title"></h5>
+                                    <p class="card-text">Defense</p>
+                                </div>
+                                <div class="col-md">
+                                    <h5 id="mana" class="card-title"></h5>
+                                    <p class="card-text">Mana</p>
+                                </div>
+                                <div class="col-md">
+                                    <h5 id="totalpower" class="card-title"></h5>
+                                    <p class="card-text">Total Power</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="daily">
+            <h2 class="text-center">Daily</h2>
+            <ul>
+                <li>
+                    <h5>Gain 250 Skillpoints</h5>
+                    <span class="bar">
+                    <span id="dailySkillpoints"></span>
+                    </span>
+                    <div class="percentage" id="dailySkillpointsPercentage"></div>
+                </li>
+                <li>
+                    <h5>Complete 1 dungeon</h5>
+                    <span class="bar">
+                    <span id="dailyDungeon"></span>
+                    </span>
+                    <div class="percentage" id="dailyDungeonPercentage"></div>
+                </li>
+            </ul>
+        </div>
+        <hr>
+        <h2 class="text-center my-3">Inventory</h2>
+        <div id="inventoryContainer">
+            
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="position-fixed bottom-0 end-0 p-3" style="z-index: 1050"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/6c1a6ea918.js" crossorigin="anonymous"></script>
+    <script src="./js/getCurrentURL.js" type="text/javascript"></script>
+    <script src="./js/userNavbarToggle.js" type="text/javascript"></script>
+    <script src="./js/queryCmds.js" type="text/javascript"></script>
+    <script src="./js/profile.js" type="text/javascript"></script>
+    <script src="./js/skillpoints.js" type="text/javascript"></script>
+    <script src="./js/profileChange.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Select Your Class</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Custom styling for the class buttons */
+    .class-button {
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .class-button:hover {
+      transform: scale(1.05);
+    }
+    /* Set a fixed size for the image container */
+    .class-img-container {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    /* Ensure the image fills the circle, with its top visible */
+    .class-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+  </style>
+</head>
+<body class="bg-dark text-white">
+    <div class="container py-5">
+        <div class="row g-4 justify-content-center">
+        <!-- Warrior -->
+        <div class="col-xs-12 col-sm-6 col-md-4 border rounded-4 m-3 p-5">
+            <div class="class-button" data-class="class1">
+            <div class="class-img-container rounded-circle">
+                <img src="pictures/warrior.jpg" class="img-fluid" alt="Warrior">
+            </div>
+            <div class="mt-2 button-text" data-class-id="1">Warrior</div>
+            </div>
+        </div>
+        <!-- Archer -->
+        <div class="col-xs-12 col-sm-6 col-md-4 border rounded-4 m-3 p-5">
+            <div class="class-button" data-class="class2">
+                <div class="class-img-container rounded-circle">
+                    <img src="pictures/archer.jpg" class="img-fluid" alt="Archer">
+                </div>
+                <div class="mt-2 button-text" data-class-id="2">Archer</div>
+            </div>
+        </div>
+        <!-- Mage -->
+        <div class="col-xs-12 col-sm-6 col-md-4 border rounded-4 m-3 p-5">
+            <div class="class-button" data-class="class3">
+            <div class="class-img-container rounded-circle">
+                <img src="pictures/mage.jpg" class="img-fluid" alt="Mage">
+            </div>
+            <div class="mt-2 button-text" data-class-id="3">Mage</div>
+            </div>
+        </div>
+        <!-- Assassin -->
+        <div class="col-xs-12 col-sm-6 col-md-4 border rounded-4 m-3 p-5">
+            <div class="class-button" data-class="class4">
+            <div class="class-img-container rounded-circle">
+                <img src="pictures/assassin.jpg" class="img-fluid" alt="Assassin">
+            </div>
+            <div class="mt-2 button-text" data-class-id="4">Assassin</div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/6c1a6ea918.js" crossorigin="anonymous"></script>
+    <script src="js/queryCmds.js" type="text/javascript"></script>
+    <script src="js/getCurrentURL.js" type="text/javascript"></script>
+    <script src="./js/classes.js" type="text/javascript"></script>
+</body>
+</html>

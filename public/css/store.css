@@ -1,0 +1,371 @@
+
+/* Overlay style */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Darken the background */
+    opacity: 0; /* Initially hidden */
+    pointer-events: none; /* Disable interaction with the overlay */
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1040; /* Below the sliding panel */
+}
+
+
+/* Styling the profile panel */
+.profile-panel {
+    position: fixed;
+    top: -100%; /* Hidden initially off-screen above */
+    left: 0; /* Always aligned to the left */
+    width: 300px; /* Default width for larger screens */
+    height: 100%; /* Full screen height */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: top 0.3s ease-in-out, left 0.3s ease-in-out;
+    z-index: 1050; /* Ensure the panel is above other content */
+    padding: 20px;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    overflow-y: auto; /* Allow vertical scrolling if content overflows */
+}
+
+/* Make the panel slide in when active */
+.profile-panel.active {
+    top: 0; /* Move the panel to the top on mobile */
+    left: 0; /* Move the panel to the left on desktop and tablets */
+}
+
+/* Show the overlay when the panel is active */
+.overlay.active {
+    opacity: 1; /* Make the overlay visible */
+    pointer-events: all; /* Enable interaction with the overlay */
+}
+
+/* Media query for mobile (up to 576px) */
+@media (max-width: 576px) {
+    .profile-panel {
+    width: 100%; /* Panel takes up 90% of screen width on mobile */
+    height: 50%; /* Limit height on mobile (50% of screen height) */
+    top: -100%; /* Panel starts off-screen from the top */
+    }
+
+    /* When panel is active, move it to the top */
+    .profile-panel.active {
+    top: 0; /* Slide down from the top */
+    }
+}
+
+/* Media query for tablet (between 576px and 768px) */
+@media (min-width: 576px) and (max-width: 768px) {
+    .profile-panel {
+    width: 100%; /* Panel takes 80% of screen width on tablet */
+    height: 60%; /* Full screen height on tablet */
+    left: 0; /* Initially positioned on the left */
+    top: -100%; /* Hidden off-screen from the top */
+    }
+
+    .profile-panel.active {
+    top: 0; /* Panel slides down from the top on tablet */
+    }
+}
+
+/* Media query for larger devices (desktop) */
+@media (min-width: 768px) {
+    .profile-panel {
+    width: 300px; /* Default width for larger screens */
+    height: 100%; /* Full screen height */
+    left: -300px; /* Initially hidden off-screen from the left */
+    top: 0; /* Panel slides in from the left */
+    }
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap");
+
+:root {
+    --card-width: 200px;
+    --card-height: 300px;
+    --card-transition-duration: 800ms;
+    --card-transition-easing: ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    font-family: "Montserrat", sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Container Styles */
+.container {
+    padding: 20px;
+}
+
+/* Carousel Wrapper */
+.carousel-wrapper {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #333; /* Matches the dark theme */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Carousel App */
+.carousel-app {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.cardList {
+    width: calc(3 * var(--card-width));
+    height: auto;
+    position: relative; /* Ensure alignment within the container */
+}
+
+.card {
+    position: absolute;
+    width: var(--card-width);
+    height: var(--card-height);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform var(--card-transition-duration) var(--card-transition-easing);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for cards */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden;
+    background-color: #000;
+}
+
+.card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Buttons for Navigation */
+.cardList__btn {
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transform: translateY(-50%);
+    color: #fff;
+}
+
+.cardList__btn.btn--left {
+    left: -50px;
+}
+
+.cardList__btn.btn--right {
+    right: -50px;
+}
+
+.cardList__btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: 0.3s ease;
+}
+
+/* Info List */
+.infoList {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.info__wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 15px;
+}
+
+.info h1,
+.info h4,
+.info p {
+    margin: 10px 0;
+}
+
+.info h1 {
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.info h4 {
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.info p {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    :root {
+        --card-width: 150px;
+        --card-height: 200px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .cardList {
+        width: calc(2 * var(--card-width));
+    }
+
+    .info h1 {
+        font-size: 18px;
+    }
+
+    .info h4 {
+        font-size: 14px;
+    }
+
+    .info p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .cardList__btn {
+        width: 30px;
+        height: 30px;
+    }
+
+    .info h1 {
+        font-size: 16px;
+    }
+
+    .info h4 {
+        font-size: 12px;
+    }
+
+    .info p {
+        font-size: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #cea925;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #ffc800;
+}
+

@@ -1,0 +1,410 @@
+body {
+    /* This is for the general size of the webpage */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    /* Body's background image */
+    height: 100vh;
+    background-image: url('../pictures/indexbackground.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+a {
+    text-decoration: none;
+}
+/* Overlay style */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    opacity: 0; 
+    pointer-events: none; 
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1040;
+}
+
+
+
+.profile-panel {
+    position: fixed;
+    top: -100%;
+    left: 0; 
+    width: 300px; 
+    height: 100%; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: top 0.3s ease-in-out, left 0.3s ease-in-out;
+    z-index: 1050;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; 
+}
+
+
+.profile-panel.active {
+    top: 0; 
+    left: 0; 
+}
+
+
+.overlay.active {
+    opacity: 1; 
+    pointer-events: all; 
+}
+
+/* Media query for mobile (up to 576px) */
+@media (max-width: 576px) {
+    .profile-panel {
+    width: 100%; 
+    height: 50%; 
+    top: -100%; 
+    }
+
+    .profile-panel.active {
+    top: 0; 
+    }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+    .profile-panel {
+    width: 100%; 
+    height: 60%; 
+    left: 0; 
+    top: -100%; 
+    }
+
+    .profile-panel.active {
+    top: 0; 
+    }
+}
+
+@media (min-width: 768px) {
+    .profile-panel {
+    width: 300px;
+    height: 100%; 
+    left: -300px;
+    top: 0; 
+    }
+} 
+
+
+
+#userInfo {
+    box-shadow: 0 0 5px #fff, 0 0 2px #fff;
+}
+
+
+
+/* LOGIN FORM */
+
+#passwordStrengthText {
+    display: inline-block;
+    padding: 2px 5px;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+#navbarNav ul {
+    display: flex; 
+    padding: 0;
+    margin: 0;
+}
+
+
+#navbarNav li {
+    list-style-type: none; 
+    margin: 0 10px;
+}
+
+#navbarNav a {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 700;
+    vertical-align: top;
+}
+  
+#navbarNav a::before,
+#navbarNav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+#navbarNav a::before {
+    background-color: #54b3d6;
+    height: 2px;
+    bottom: 0;
+    transform-origin: 100% 50%;
+    transform: scaleX(0);
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+#navbarNav a::after {
+    content: attr(data-replace);
+    height: 100%;
+    top: 0;
+    transform-origin: 100% 50%;
+    transform: translate3d(200%, 0, 0);
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+    color: #54b3d6;
+}
+  
+#navbarNav a:hover::before {
+    transform-origin: 0% 50%;
+    transform: scaleX(1);
+}
+#navbarNav a:hover::after {
+    transform: translate3d(0, 0, 0);
+}
+  
+#navbarNav a span {
+    display: inline-block;
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+  
+#navbarNav a:hover span {
+    transform: translate3d(-200%, 0, 0);
+}
+  
+
+
+
+
+
+
+
+li { /*style the li tag*/
+	list-style-type: none;
+	font-family: sans-serif;
+}
+
+#daily {
+    max-width: 500px;
+    width: 90%;
+    margin: 60px auto;
+    color: #fff;
+}
+
+#daily li { /*set margin of li*/
+	margin: 20px 0;
+}
+
+.bar {
+    background-color: #353b48;
+    display: block;
+    height: 20px;
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 10px; /* increased for more curvature */
+    overflow: hidden;
+    box-shadow: 0 0 3px #2187e7b3;
+    width: 100%;
+}
+
+.bar span {
+    height: 100%;
+    display: block;
+    background-color: #2187e7;
+    width: 0; /* will be updated dynamically */
+    border-radius: 10px; /* Ensure inner bar also has curved edges */
+}
+
+.percentage {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #fff;
+}
+
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+/* picture selection in user profile */
+
+
+.picture-selector {
+    position: absolute;
+    top: 0%; /* Align it to the top of the button */
+    left: 0%; /* Position it immediately to the right of the button */
+    margin-left: 10px; /* Space between button and picture selector */
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 10;
+    width: max-content;
+    opacity: 0;
+    visibility: hidden; 
+    transform: translateX(20px); /* Start slightly off-screen */
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s;
+}
+
+/* When the 'show' class is added, the selector will appear */
+.picture-selector.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0); /* Slide it into view */
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0s; /* Remove delay for visibility */
+}
+
+.profile-option {
+    margin: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.profile-option:hover {
+    transform: scale(1.2);
+}
+
+#change-picture-btn {
+    font-size: 14px;
+    margin-right: 10px; /* Space between the button and the selector */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Star review css */
+.rate {
+    display: flex;
+    flex-direction: row-reverse; /* Reverse the order visually */
+    justify-content: center; /* Center the stars */
+    gap: 5px; /* Add space between stars */
+}
+
+.rate > input {
+    display: none; /* Hide the radio buttons */
+}
+
+.rate > label {
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc; /* Default star color */
+    transition: color 0.2s ease; /* Smooth color transition */
+}
+
+.rate > label:hover,
+.rate > label:hover ~ label {
+    color: #ebc025; /* Highlight stars on hover */
+}
+
+.rate > input:checked ~ label {
+    color: #ffc700; /* Highlight stars when selected */
+}
+
+.star-rating {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.star-rating .fa-star {
+    font-size: 20px;
+    color: #ccc; /* Default star color */
+}
+
+.star-rating .checked {
+    color: #ffc700; /* Filled star color */
+}
+
+
+/* Textarea styling */
+.form-floating {
+    margin-top: 20px;
+}
+
+#responseMessage {
+    margin-top: 10px;
+    font-size: 16px;
+    color: green;
+}
+
+
+
+
+
+/* Party display css */
+
+.party-column {
+    flex: 1;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.plus-btn {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+}
+/* Layout for the party row */
+#party-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+
+
+
+
+.hover-btn {
+    background-color: #008CBA; /* Base background color */
+    color: #fff;              /* Text color */
+    padding: 12px 24px;       /* Padding for comfortable click area */
+    border: none;             /* No border */
+    border-radius: 5px;       /* Rounded corners */
+    font-size: 16px;          /* Font size */
+    cursor: pointer;          /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect: darken the background and scale up slightly */
+.hover-btn:hover {
+    background-color: #005f73;
+    transform: scale(1.05);
+}
